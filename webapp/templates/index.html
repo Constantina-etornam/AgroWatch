@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroWatch - Crop Monitoring System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🌿 AgroWatch</h1>
+            <p>Multi-Crop Monitoring • Pest & Disease Detection • Market Linkage</p>
+        </div>
+    </header>
+
+    <div class="container" id="userBar" style="display:flex; justify-content:space-between; align-items:center; padding:0.6rem 0; font-size:0.95rem;">
+        <span id="welcomeText">Welcome</span>
+        <button id="logoutBtn" style="width:auto; padding:0.4rem 0.9rem; font-size:0.9rem; background:#c62828;">Logout</button>
+    </div>
+
+
+    <!-- Crop showcase -->
+    <div class="container crop-showcase">
+        <div class="crop-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg" alt="Tomato">
+            <span>Tomato</span>
+        </div>
+        <div class="crop-card">
+            <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=400&h=260&fit=crop" alt="Maize">
+            <span>Maize</span>
+        </div>
+        <div class="crop-card">
+            <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=400&h=260&fit=crop" alt="Pineapple">
+            <span>Pineapple</span>
+        </div>
+    </div>
+
+    <nav class="container nav">
+        <button class="nav-btn active" data-section="home" id="homeTab">Home</button>
+        <button class="nav-btn" data-section="dashboard" id="dashboardTab" style="display:none;">Dashboard</button>
+        <button class="nav-btn active" data-section="scan">Scan Crop</button>
+        <button class="nav-btn" data-section="history" id="historyTab">History</button>
+        <button class="nav-btn" data-section="market">Market</button>
+        <button class="nav-btn" data-section="resources">Resources</button>
+    </nav>
+
+    <main class="container">
+        
+        <!-- DASHBOARD SECTION (Admin only) -->
+        <section id="dashboard-section" class="card hidden">
+            <h2>Admin Dashboard</h2>
+            <p class="subtitle">System overview and recent activity</p>
+
+            <div class="result-summary" id="dashSummary" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="stat"><div class="label">Total Scans</div><div class="value" id="statScans">-</div></div>
+                <div class="stat"><div class="label">Plants Detected</div><div class="value" id="statPlants">-</div></div>
+                <div class="stat"><div class="label">Disease Flags</div><div class="value" id="statDiseases">-</div></div>
+                <div class="stat"><div class="label">Active Listings</div><div class="value" id="statListings">-</div></div>
+            </div>
+
+            <h3 style="margin:1.5rem 0 0.8rem; color:#1b5e20;">Recent Scans</h3>
+            <div id="dashRecentScans"><p class="muted">Loading...</p></div>
+
+            <h3 style="margin:1.5rem 0 0.8rem; color:#1b5e20;">Disease Breakdown</h3>
+            <div id="dashDiseases"><p class="muted">Loading...</p></div>
+        </section>
+
+        
+        <!-- HOME / LANDING SECTION -->
+        
+
+        
+        <!-- HOME / LANDING SECTION -->
+        <section id="home-section" class="card">
+            <div style="text-align:center; margin-bottom:1.5rem;">
+                <p style="color:#2e7d32; font-weight:600; letter-spacing:0.04em; margin:0 0 0.4rem;">
+                    HO TECHNICAL UNIVERSITY · DEPARTMENT OF COMPUTER SCIENCE
+                </p>
+                <h1 style="margin:0.3rem 0 0.6rem; color:#1b5e20; font-size:1.85rem; line-height:1.25;">
+                    AgroWatch
+                </h1>
+                <p style="margin:0 auto 1rem; max-width:720px; color:#333; font-size:1.05rem;">
+                    A smart farming helper for tomato, maize, and pineapple —
+                    detect plants, check crop health, and link to markets
+                </p>
+                <p style="margin:0; color:#555; font-size:0.92rem;">
+                    Final-Year B.Tech ICT Dissertation Project · 2025
+                </p>
+            </div>
+
+            <div class="result-summary" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin-bottom:1.5rem;">
+                <div class="stat"><div class="label">Crops</div><div class="value" style="font-size:1.05rem;">Tomato · Maize · Pineapple</div></div>
+                <div class="stat"><div class="label">Detect</div><div class="value" style="font-size:1.05rem;">Find plants in photos</div></div>
+                <div class="stat"><div class="label">Health</div><div class="value" style="font-size:1.05rem;">Pest & disease tips</div></div>
+                <div class="stat"><div class="label">Market</div><div class="value" style="font-size:1.05rem;">List & find buyers</div></div>
+            </div>
+
+            <h3 style="color:#1b5e20; margin-bottom:0.6rem;">About the Project</h3>
+            <p style="margin:0 0 1rem; line-height:1.6; color:#333;">
+                AgroWatch is a Final-Year B.Tech ICT project built to support smallholder
+                farmers in Ghana. Many farmers grow tomato, maize, and pineapple, but checking
+                every plant by walking the farm takes time, and pests or diseases can spread
+                before help arrives. Selling produce is also hard when farmers do not know
+                buyers or fair prices.
+            </p>
+            <p style="margin:0 0 1rem; line-height:1.6; color:#333;">
+                This system helps in a simple way: you take or upload a photo of your crop.
+                The system finds the plants in the picture, checks for common pests and
+                diseases, and tells you what to do in everyday language. You can also view
+                past scans, list produce for sale, and see local markets — all on one website
+                that works on a phone or computer.
+            </p>
+
+            <h3 style="color:#1b5e20; margin-bottom:0.6rem;">What You Can Do</h3>
+            <ul style="margin:0 0 1.2rem 1.2rem; line-height:1.65; color:#333;">
+                <li><strong>Find plants in photos</strong> — works for tomato, maize, and pineapple</li>
+                <li><strong>Follow plants across photos</strong> — helpful when the camera moves</li>
+                <li><strong>Get health advice</strong> — common pests and diseases, with simple next steps</li>
+                <li><strong>Sell better</strong> — list produce and see local markets</li>
+                <li><strong>Different users</strong> — views for farmers, buyers, experts, and admin</li>
+            </ul>
+
+            <h3 style="color:#1b5e20; margin-bottom:0.6rem;">Project Team</h3>
+            <p style="margin:0 0 0.3rem; color:#333;">
+                <strong>Authors:</strong>
+                Agbenorlawoduga, Constantina Etornam Afi ·
+                Bonuedi, Richmond M. ·
+                Koranteng, Elton John Elikem Takyi
+            </p>
+            <p style="margin:0 0 1.2rem; color:#333;">
+                <strong>Supervisor:</strong> Mr. Bill K. Frimpong ·
+                Department of Computer Science, Ho Technical University
+            </p>
+
+            <div style="display:flex; gap:0.8rem; flex-wrap:wrap; justify-content:center; margin-top:1rem;">
+                <button type="button" class="nav-btn" data-section="scan" style="display:inline-block;">Start Scan</button>
+                <button type="button" class="nav-btn secondary-btn" data-section="market" style="display:inline-block;">View Market</button>
+            </div>
+        </section>
+
+        <!-- SCAN SECTION -->
+        <section id="scan-section" class="card">
+            <h2>Scan Crop Image</h2>
+            <p class="subtitle">Upload a drone or field image to detect plants and diagnose diseases</p>
+
+            <form id="scanForm">
+                <div class="form-group">
+                    <label for="crop">Select Crop</label>
+                    <select id="crop" name="crop" required>
+                        <option value="">-- Choose crop --</option>
+                        <option value="tomato">Tomato</option>
+                        <option value="maize">Maize</option>
+                        <option value="pineapple">Pineapple</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Image source</label>
+                    <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.6rem;">
+                        <button type="button" id="btnUpload" class="secondary-btn" style="margin:0;">📁 Upload file</button>
+                        <button type="button" id="btnCamera" class="secondary-btn" style="margin:0;">📷 Take photo</button>
+                    </div>
+                    <input type="file" id="image" name="image" accept="image/*" capture="environment" style="display:none;" required>
+                    <div id="imagePreview" style="margin-top:0.6rem; display:none;">
+                        <img id="previewImg" style="max-width:100%; max-height:220px; border-radius:8px; border:1px solid #ddd;">
+                        <p id="previewName" class="muted" style="margin-top:0.3rem; font-size:0.85rem;"></p>
+                    </div>
+                </div>
+                <button type="submit" id="submitBtn">🔍 Analyse Image</button>
+            </form>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Running detection and diagnosis...</p>
+            </div>
+            <div id="results" class="results hidden"></div>
+        </section>
+
+        
+        <!-- HISTORY SECTION -->
+        <section id="history-section" class="card hidden">
+            <h2>Scan History</h2>
+            <p class="subtitle">Your recent crop scans and disease detections</p>
+            <button id="refreshHistory" class="secondary-btn">🔄 Refresh</button>
+            <div id="historyContainer" style="margin-top:1rem;">
+                <p class="muted">Loading history...</p>
+            </div>
+        </section>
+
+        <!-- MARKET SECTION -->
+        <section id="market-section" class="card hidden">
+            <h2>Market Linkage</h2>
+            <p class="subtitle">List your produce, browse listings, and find local markets</p>
+
+            <div class="market-grid">
+                <div class="market-box">
+                    <h3>Create Listing</h3>
+                    <form id="listingForm">
+                        <div class="form-group">
+                            <label for="m_crop">Crop</label>
+                            <select id="m_crop" required>
+                                <option value="tomato">Tomato</option>
+                                <option value="maize">Maize</option>
+                                <option value="pineapple">Pineapple</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="m_qty">Quantity (kg)</label>
+                            <input type="number" id="m_qty" step="0.1" min="1" required placeholder="e.g. 50">
+                        </div>
+                        <div class="form-group">
+                            <label for="m_price">Asking Price (GHS per kg)</label>
+                            <input type="number" id="m_price" step="0.1" min="0.1" required placeholder="e.g. 4.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="m_date">Harvest Date</label>
+                            <input type="date" id="m_date" required>
+                        </div>
+                        <button type="submit">📢 Post Listing</button>
+                    </form>
+                    <div id="listingMsg" class="msg hidden"></div>
+                </div>
+
+                <div class="market-box">
+                    <h3>Available Listings</h3>
+                    <button id="refreshListings" class="secondary-btn">🔄 Refresh</button>
+                    <div id="listingsContainer">
+                        <p class="muted">Click refresh to load listings...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="market-box" style="margin-top: 1.5rem;">
+                <h3>📍 Local Markets (Ho, Volta & Major Centres)</h3>
+                <button id="refreshMarkets" class="secondary-btn">🔄 Load Markets</button>
+                <div id="marketsContainer">
+                    <p class="muted">Click the button to load local markets...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESOURCES SECTION -->
+        <section id="resources-section" class="card hidden">
+            <h2>Resources for Farmers</h2>
+            <p class="subtitle">News, opportunities, pesticide guidance and agro shops</p>
+
+            <div class="resource-tabs">
+                <button class="res-tab active" data-res="news">📰 News</button>
+                <button class="res-tab" data-res="opportunities">🎯 Opportunities</button>
+                <button class="res-tab" data-res="pesticides">🛡️ Pesticides</button>
+                <button class="res-tab" data-res="shops">🏪 Agro Shops</button>
+            </div>
+
+            <div id="res-news" class="res-panel"></div>
+            <div id="res-opportunities" class="res-panel hidden"></div>
+            <div id="res-pesticides" class="res-panel hidden"></div>
+            <div id="res-shops" class="res-panel hidden"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>AgroWatch &copy; 2026 — Ho Technical University • Final Year BTech Project</p>
+        </div>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

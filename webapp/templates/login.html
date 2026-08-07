@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login – AgroWatch</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .auth-box {
+            max-width: 420px;
+            margin: 3rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .auth-box h2 {
+            text-align: center;
+            color: #1b5e20;
+            margin-bottom: 1.5rem;
+        }
+        .auth-box input, .auth-box select {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .auth-box button {
+            width: 100%;
+            padding: 0.85rem;
+            background: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .auth-box button:hover { background: #1b5e20; }
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+        }
+        .auth-footer a { color: #2e7d32; font-weight: 600; }
+        .error-msg {
+            background: #ffcdd2;
+            color: #b71c1c;
+            padding: 0.7rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🌿 AgroWatch</h1>
+            <p>Login to your account</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="auth-box">
+            <h2>Login</h2>
+            <div id="errorMsg" class="error-msg"></div>
+            <form id="loginForm">
+                <input type="text" id="phone" placeholder="Phone number" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="auth-footer">
+                Don’t have an account? <a href="/register">Register</a><br>
+                <a href="/" style="display:inline-block; margin-top:0.6rem;">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const errorMsg = document.getElementById("errorMsg");
+            errorMsg.style.display = "none";
+
+            const payload = {
+                phone_number: document.getElementById("phone").value.trim(),
+                password: document.getElementById("password").value
+            };
+
+            try {
+                const res = await fetch("/api/auth/login", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+
+                if (data.status === "success") {
+                    localStorage.setItem("agrowatch_user", JSON.stringify(data.user));
+                    window.location.href = "/app";
+                } else {
+                    errorMsg.textContent = data.message || "Login failed";
+                    errorMsg.style.display = "block";
+                }
+            } catch (err) {
+                errorMsg.textContent = "Network error. Please try again.";
+                errorMsg.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>

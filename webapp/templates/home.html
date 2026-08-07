@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroWatch – Final-Year B.Tech ICT Project</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32 60%, #81c784);
+            color: white;
+            text-align: center;
+            padding: 2.8rem 1rem 2.4rem;
+        }
+        .hero h1 { font-size: 2.2rem; margin: 0.4rem 0; }
+        .hero .tag {
+            opacity: 0.95;
+            max-width: 640px;
+            margin: 0.6rem auto 1.4rem;
+            font-size: 1.05rem;
+            line-height: 1.45;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .hero-buttons a {
+            padding: 0.75rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .btn-primary { background: white; color: #1b5e20; }
+        .btn-outline { border: 2px solid white; color: white; }
+        .uni {
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            opacity: 0.9;
+            margin: 0;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            padding: 1.8rem 0 0.5rem;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        .feature-card h3 { color: #1b5e20; margin: 0.4rem 0; font-size: 1.05rem; }
+        .feature-card p { margin: 0; color: #444; font-size: 0.95rem; line-height: 1.45; }
+        .about-box {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+        .about-box h2 { color: #1b5e20; margin: 0 0 0.7rem; font-size: 1.25rem; }
+        .about-box p { margin: 0 0 0.8rem; line-height: 1.6; color: #333; }
+        .team { margin: 1.2rem 0 0.5rem; color: #333; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <p class="uni">HO TECHNICAL UNIVERSITY · DEPARTMENT OF COMPUTER SCIENCE</p>
+            <h1>🌿 AgroWatch</h1>
+            <p class="tag">
+                A smart farming helper for tomato, maize, and pineapple —
+                detect plants, check crop health, and link to markets
+            </p>
+            <p style="margin:0 0 1.2rem; opacity:0.9; font-size:0.95rem;">
+                Final-Year B.Tech ICT Dissertation Project · 2025
+            </p>
+            <div class="hero-buttons">
+                <a href="/login" class="btn-primary">Login</a>
+                <a href="/register" class="btn-outline">Create Account</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="features">
+            <div class="feature-card">
+                <h3>📷 Find plants in photos</h3>
+                <p>Upload or take a picture. The system finds tomato, maize, or pineapple plants in the image.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🩺 Crop health tips</h3>
+                <p>Checks for common pests and diseases and explains what to do in simple language.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🛒 Market help</h3>
+                <p>List your produce for sale and see local markets so you can plan better.</p>
+            </div>
+            <div class="feature-card">
+                <h3>👥 For different users</h3>
+                <p>Farmers, buyers, agricultural experts, and admin each get a suitable view.</p>
+            </div>
+        </div>
+
+        <div class="about-box">
+            <h2>About the Project</h2>
+            <p>
+                AgroWatch is a Final-Year B.Tech ICT project built to support smallholder
+                farmers in Ghana. Many farmers grow tomato, maize, and pineapple, but checking
+                every plant by walking the farm takes time, and pests or diseases can spread
+                before help arrives. Selling produce is also hard when farmers do not know
+                buyers or fair prices.
+            </p>
+            <p>
+                This system helps in a simple way: you take or upload a photo of your crop.
+                The system finds the plants in the picture, checks for common pests and
+                diseases, and tells you what to do in everyday language. You can also view
+                past scans, list produce for sale, and see local markets — all on one website
+                that works on a phone or computer.
+            </p>
+            <p class="team">
+                <strong>Authors:</strong>
+                Agbenorlawoduga, Constantina Etornam Afi ·
+                Bonuedi, Richmond M. ·
+                Koranteng, Elton John Elikem Takyi
+            </p>
+            <p class="team" style="margin-top:0.3rem;">
+                <strong>Supervisor:</strong> Mr. Bill K. Frimpong ·
+                Department of Computer Science, Ho Technical University
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>AgroWatch &copy; 2026 — Ho Technical University · Final-Year B.Tech ICT Project</p>
+        </div>
+    </footer>
+</body>
+</html>
