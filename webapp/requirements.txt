@@ -1,11 +1,13 @@
 flask==3.0.3
 flask-cors==4.0.1
-ultralytics==8.3.0
-opencv-python-headless==4.10.0.84
-filterpy==1.4.5
-numpy==1.26.4
-werkzeug==3.0.3
-feedparser==6.0.11
 gunicorn==22.0.0
-scipy==1.13.1
+werkzeug==3.0.3
+numpy==1.26.4
 pillow==10.4.0
+feedparser==6.0.11
+filterpy==1.4.5
+scipy==1.13.1
+opencv-python-headless==4.10.0.84
+ultralytics==8.3.0
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.4.1+cpu
